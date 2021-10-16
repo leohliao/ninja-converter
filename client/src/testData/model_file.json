@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "title": "Ethyl Alcohol",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2020-10-27T01:53:26Z"
+  },
+  {
+    "id": 2,
+    "title": "ALLIUM CEPA, ARSENICUM ALBUM, NUX VOMICA, EUPHRASIA OFFICINALIS, SABADILLA, STICTA PULMONARIA, ARALIA RACEMOSA, CUPRUM METALLICUM",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2020-12-26T18:30:01Z"
+  },
+  {
+    "id": 3,
+    "title": "PREDNISONE",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-06-21T16:20:51Z"
+  },
+  {
+    "id": 4,
+    "title": "MENTHOL",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-05-20T16:44:57Z"
+  },
+  {
+    "id": 5,
+    "title": "betamethasone dipropionate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-05-09T02:19:01Z"
+  },
+  {
+    "id": 6,
+    "title": "Hydorcortisone and Acetic Acid",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-01-15T03:35:04Z"
+  },
+  {
+    "id": 7,
+    "title": "Bambusa Aesculus",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2020-12-16T23:07:53Z"
+  },
+  {
+    "id": 8,
+    "title": "Octinoxate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-03-21T18:49:15Z"
+  },
+  {
+    "id": 9,
+    "title": "Bupropion hydrochloride",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-06-01T20:38:36Z"
+  },
+  {
+    "id": 10,
+    "title": "phenylephrine hcl, brompheniramine maleate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-02-07T05:33:10Z"
+  },
+  {
+    "id": 11,
+    "title": "hydroxyzine hydrochloride",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-01-20T02:45:01Z"
+  },
+  {
+    "id": 12,
+    "title": "Acetaminophen, Aspirin, Caffeine",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-09-02T22:42:24Z"
+  },
+  {
+    "id": 13,
+    "title": "Citalopram",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-07-29T10:02:56Z"
+  },
+  {
+    "id": 14,
+    "title": "Furosemide",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-06-12T19:02:57Z"
+  },
+  {
+    "id": 15,
+    "title": "Losartan Potassium",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-01-25T02:41:15Z"
+  },
+  {
+    "id": 16,
+    "title": "Titanium Dioxide, OCTINOXATE, OCTISALATE, Zinc Oxide",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-05-02T00:52:32Z"
+  },
+  {
+    "id": 17,
+    "title": "Standardized Grass Pollen, Timothy",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-03-23T23:54:42Z"
+  },
+  {
+    "id": 18,
+    "title": "clozapine",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-10-13T00:09:39Z"
+  },
+  {
+    "id": 19,
+    "title": "Ethyl Alcohol",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2020-12-01T13:58:45Z"
+  },
+  {
+    "id": 20,
+    "title": "Magnesium Salicylate Tetrahydrate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-10-03T07:05:49Z"
+  },
+  {
+    "id": 21,
+    "title": "Calcium Carbonate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-03-21T15:48:27Z"
+  },
+  {
+    "id": 22,
+    "title": "Diltiazem Hydrochloride",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-07-10T04:49:12Z"
+  },
+  {
+    "id": 23,
+    "title": "Chlorhexidine Gluconate and Alcohol",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2020-12-21T10:33:19Z"
+  },
+  {
+    "id": 24,
+    "title": "Sodium Sulfacetamide and Sulfur",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-06-24T08:42:35Z"
+  },
+  {
+    "id": 25,
+    "title": "Blueberry",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-10-03T21:56:10Z"
+  },
+  {
+    "id": 26,
+    "title": "TITANIUM DIOXIDE",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-03-10T05:26:57Z"
+  },
+  {
+    "id": 27,
+    "title": "Ibuprofen",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2020-11-24T14:32:31Z"
+  },
+  {
+    "id": 28,
+    "title": "Ibuprofen",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-04-30T01:27:17Z"
+  },
+  {
+    "id": 29,
+    "title": "Silver Maple",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-02-15T12:38:41Z"
+  },
+  {
+    "id": 30,
+    "title": "Tall Ragweed",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-01-28T03:02:12Z"
+  },
+  {
+    "id": 31,
+    "title": "DATURA STRAMONIUM",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-05-05T17:08:31Z"
+  },
+  {
+    "id": 32,
+    "title": "HYDROXYZINE PAMOATE",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-01-10T06:59:23Z"
+  },
+  {
+    "id": 33,
+    "title": "Lithium Carbonate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-07-12T13:49:48Z"
+  },
+  {
+    "id": 34,
+    "title": "benzocaine",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-05-30T04:53:44Z"
+  },
+  {
+    "id": 35,
+    "title": "Medroxyprogesterone Acetate",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-03-19T07:09:09Z"
+  },
+  {
+    "id": 36,
+    "title": "Acetaminophen, Dextromethorphan Hydrobromide, Guaifenesin, and Phenylephrine Hydrochloride",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-03-09T00:09:44Z"
+  },
+  {
+    "id": 37,
+    "title": "Anastrozole",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2020-11-05T12:23:52Z"
+  },
+  {
+    "id": 38,
+    "title": "Oxazepam",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-07-14T01:47:27Z"
+  },
+  {
+    "id": 39,
+    "title": "Guaifenesin",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-08-09T20:43:53Z"
+  },
+  {
+    "id": 40,
+    "title": "MORPHINE SULFATE and NALTREXONE HYDROCHLORIDE",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-05-05T05:27:43Z"
+  },
+  {
+    "id": 41,
+    "title": "Theophylline",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2020-10-27T21:52:27Z"
+  },
+  {
+    "id": 42,
+    "title": "Simethicone",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2020-12-12T09:05:20Z"
+  },
+  {
+    "id": 43,
+    "title": "Cetirizine HCl, Pseudoephedrine HCl",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-02-20T00:13:08Z"
+  },
+  {
+    "id": 44,
+    "title": "DROSERA, ARNICA MONTANA, BRYONIA, CETRARIA ISLANDICA, BELLADONNA, COCCUS CACTI, STANNUM METALLICUM, CHAMOMILLA, COFFEA CRUDA",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-05-17T07:33:02Z"
+  },
+  {
+    "id": 45,
+    "title": "Aluminum hydroxide, Magnesium hydroxide, Simethicone",
+    "cover_image_url": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "created_datetime": "2021-02-10T16:11:35Z"
+  },
+  {
+    "id": 46,
+    "title": "ENALAPRIL MALEATE",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-01-21T21:16:00Z"
+  },
+  {
+    "id": 47,
+    "title": "Avobenzone, Homosalate, Octisalate, Octocrylene and Oxybenzone",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-03-10T03:51:49Z"
+  },
+  {
+    "id": 48,
+    "title": "Glipizide and Metformin Hydrochloride",
+    "cover_image_url": "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
+    "created_datetime": "2021-06-11T22:21:05Z"
+  },
+  {
+    "id": 49,
+    "title": "Phenytoin Sodium",
+    "cover_image_url": "http://dummyimage.com/100x100.png/dddddd/000000",
+    "created_datetime": "2021-10-09T15:33:42Z"
+  },
+  {
+    "id": 50,
+    "title": "Octinoxate and Titanium Dioxide",
+    "cover_image_url": "http://dummyimage.com/100x100.png/cc0000/ffffff",
+    "created_datetime": "2021-04-12T07:54:28Z"
+  }
+]
