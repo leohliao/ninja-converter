@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import FileItemCard from './FileItemCard'
 
-import model_file from '../testData/model_file.json'
+import model_file from '../../testData/model_file.json'
 
 function FileItemLists() {
     const files = model_file;
