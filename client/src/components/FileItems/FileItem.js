@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link  } from 'react-router-dom'
 import { Row, Col, Image, ListGroup } from 'react-bootstrap'
-import model_file from '../../testData/model_file.json';
-import model_image from '../../testData/model_image.json'
 import ImageItemList from '../Images/ImageItemList';
+import { fetchFile } from '../../utils/util_files';
+import { fetchImages } from '../../utils/util_images';
 
 export default function FileItem({match}) {
-    const file = model_file.find((f) => f.id == match.params.id);
-    const images = model_image.filter((i) => i.file_id == match.params.id);
+    const [file, setFile] = useState({})
+    const [images, setImages] = useState([])
+
+    useEffect(() => {
+        async function handleFetchFile(match) {
+            const { data } = await fetchFile(match);
+            if (data.length > 0) {
+                setFile(data);
+            }
+        }
+        async function handleFetchImages(match) {
+            const resp = await fetchImages(match);
+            console.log('resp: ', resp)
+            const {data} = resp;
+            if (data.length > 0) {
+                setImages(data);
+            }
+        }
+
+        handleFetchFile(match);
+        handleFetchImages(match.params.id);
+    }, [match])
+
     return (
         <div>
             <Row>

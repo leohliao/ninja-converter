@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import FileItemList from './components/FileItems/FileItemList'
 import FileItem from './components/FileItems/FileItem'
 import ConverterIndex from './components/Converters/ConverterIndex'
+import React from 'react'
 
 function App() {
   return (

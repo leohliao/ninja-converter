@@ -1,11 +1,21 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import FileItemCard from './FileItemCard'
-
-import model_file from '../../testData/model_file.json'
+import { fetchFiles } from '../../utils/util_files';
 
 function FileItemLists() {
-    const files = model_file;
+    const [files, setFiles] = useState([])
+
+    useEffect(() => {
+
+        // Fetch all the files upon componentDidMount
+        async function handleFetchFiles() {
+            const { data } = await fetchFiles();
+            setFiles(data);
+        }
+        
+        handleFetchFiles();
+    }, [])
     return (
         <div>
             <h2>Your files:</h2>
