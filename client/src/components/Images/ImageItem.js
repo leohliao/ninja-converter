@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Container, Button, Image, Row, Col} from 'react-bootstrap'
+import { Modal, Container, Image, Row, Col} from 'react-bootstrap'
 
 function ImageItem({ show, image, fileTitle, handleToggleModal }) {
   console.log('show: ', show);

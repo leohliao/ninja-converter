@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { uploadFile } from '../../utils/util_files';
 
 function ConverterIndex() {
     const hiddenFileInput = React.useRef(null);
@@ -9,8 +10,17 @@ function ConverterIndex() {
     };
 
     const handleChange = (event) => {
-        const fileUploaded = event.target.files[0];
-        console.log('fileUploaded: ', fileUploaded);
+        const formData = new FormData();
+        const uploadedFile = event.target.files[0];
+        // lastModified: 1613095037055
+        // lastModifiedDate: Thu Feb 11 2021 17:57:17 GMT-0800 (Pacific Standard Time) {}
+        // name: "Sequoia Architecture.pptx"
+        // size: 3356050
+        // type: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        // webkitRelativePath: ""
+        formData.append('file', uploadedFile);
+        uploadFile(formData);
+        // Todo: Activate loading bar
     };
     return (
       <Container fluid="md">
@@ -30,7 +40,7 @@ function ConverterIndex() {
           <Col md="auto">
             <input
               type="file"
-              accept="pdf/*"
+              accept="application/pdf, application/vnd.ms-powerpoint, .ppt, .pptx"
               style={{ display: 'none' }}
               id="converter-input-button"
               ref={hiddenFileInput}

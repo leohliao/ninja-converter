@@ -11,6 +11,7 @@ function FileItemLists() {
         // Fetch all the files upon componentDidMount
         async function handleFetchFiles() {
             const { data } = await fetchFiles();
+            console.log("FileItemList: data => ", data)
             setFiles(data);
         }
         

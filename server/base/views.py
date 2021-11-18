@@ -1,11 +1,10 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
 import cloudinary.uploader
-from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser, JSONParser
+from .serializers import FileSerializer, ImageSerializer
+from .models import File, Image
+
+# TODO:
 import json
 
 # Create your views here.
@@ -14,53 +13,76 @@ def getRoutes(request):
     routes = [
         '/api/files/',
         '/api/files/create',
-        '/api/files/upload',
         '/api/files/<id>',
         '/api/files/<id>/images'
         '/api/files/delete/<id>',
         '/api/files/update/<id>',
-        '/api/image/upload'
+        '/api/file/upload',
+        '/api/image/<id>'
     ]
     return Response(routes)
 
 
 @api_view(['GET'])
 def getFiles(request):
-    with open('/Users/liaol/Development/ninja-converter/server/base/testData/model_file.json') as rawData:
-        data = json.load(rawData)
-    return Response(data)
+    files = File.objects.all()
+    serializer = FileSerializer(files, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getFile(request, pk):
-    file = None
-
-    with open('/Users/liaol/Development/ninja-converter/server/base/testData/model_file.json') as rawData:
-        files = json.load(rawData)
-        for f in files:
-            if str(f.get('id')) == pk:
-                file = f
-                break
-    return Response(file)
+    file = File.objects.get(id=pk)
+    serializer = FileSerializer(file, many=False)
+    return Response(serializer.data)
+    # with open('/Users/liaol/Development/ninja-converter/server/base/testData/model_file.json') as rawData:
+    #     files = json.load(rawData)
+    #     for f in files:
+    #         if str(f.get('id')) == pk:
+    #             file = f
+    #             break
+    # return Response(file)
 
 
 @api_view(['GET'])
 def getImages(request, pk):
-    with open('/Users/liaol/Development/ninja-converter/server/base/testData/model_image.json') as rawData:
-        rawImages = json.load(rawData)
-        print(f"rawImages: {rawImages}")
-        images = [image for image in rawImages if str(image.get('file_id')) == pk]
-    return Response(images)
+    print(f'pk: {pk}')
+    images = Image.objects.filter(file_id=pk)
+    print(f"images: {images}")
+    serializer = ImageSerializer(images, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getImage(request, pk):
+    print("getImage")
+    print(f'pk: {pk}')
+    image = Image.objects.filter(id=pk).first()
+    print(f"image: {image}")
+    serializer = ImageSerializer(image, many=False)
+    return Response(serializer.data)
 
 
 @api_view(['POST'])
-def uploadImage(request):
+def uploadFile(request):
+    # def uploadImage(request):
+    print(f'uploadFile:  request => {request}')
     file = request.data.get('file')
-    upload_data = cloudinary.uploader.upload(file)
+    print(f'uploadFile: {file}')
+    # Categorize the data (pdf or pptx)
+    # Determine which library to use
+    # Convert the file into images
+    # Upload those images to cloudinary and create image object
     return Response({
-        'status': 'success',
-        'data': upload_data,
+        'status': 'success'
     }, status=201)
+
+    # upload_data = cloudinary.uploader.upload(file)
+    # return Response({
+    #     'status': 'success',
+    #     'data': upload_data,
+    # }, status=201)
+
     # {
     #     "status": "success",
     #     "data": {

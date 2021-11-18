@@ -3,8 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.getRoutes, name="routes"),
-    path('files/', views.getFiles, name="files"),
-    path('file/<str:pk>', views.getFile, name="file"),
-    path('file/<str:pk>/images', views.getImages, name="images"),
-    path('image/upload', views.uploadImage, name="image")
+    path('files/', views.getFiles, name="get_files"),
+    path('file/<str:pk>', views.getFile, name="get_file"),
+    path('file/<str:pk>/images', views.getImages, name="get_images"),
+    path('file/upload/', views.uploadFile, name="file_upload"),
+    path('image/<str:pk>', views.getImage, name="get_image")
 ]

@@ -10,22 +10,22 @@ export default function FileItem({match}) {
     const [images, setImages] = useState([])
 
     useEffect(() => {
-        async function handleFetchFile(match) {
-            const { data } = await fetchFile(match);
+        async function handleFetchFile(pk) {
+            const { data } = await fetchFile(pk);
             if (data.length > 0) {
+                console.log('data: ', data)
                 setFile(data);
             }
         }
-        async function handleFetchImages(match) {
-            const resp = await fetchImages(match);
-            console.log('resp: ', resp)
+        async function handleFetchImages(pk) {
+            const resp = await fetchImages(pk);
             const {data} = resp;
             if (data.length > 0) {
                 setImages(data);
             }
         }
 
-        handleFetchFile(match);
+        handleFetchFile(match.params.id);
         handleFetchImages(match.params.id);
     }, [match])
 
