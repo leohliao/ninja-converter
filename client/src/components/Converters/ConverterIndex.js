@@ -1,16 +1,24 @@
-import React from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Container, Row, Col, Button, Toast } from 'react-bootstrap';
 import { uploadFile } from '../../utils/util_files';
+import { errorHandler } from '../../handlers/errorHandlers';
 
 function ConverterIndex() {
     const hiddenFileInput = React.useRef(null);
+    const [show, setShow] = useState(false);
+    const [status, setStatus] = useState('');
+    const [msg, setMsg] = useState('');
 
     const handleClick = (event) => {
+        event.preventDefault();
         hiddenFileInput.current.click();
     };
 
-    const handleChange = (event) => {
+    const toggleShow = () => setShow(!show);
+
+    const handleChange = async (event) => {
         const formData = new FormData();
+        // User can only upload 1 file at a time
         const uploadedFile = event.target.files[0];
         // lastModified: 1613095037055
         // lastModifiedDate: Thu Feb 11 2021 17:57:17 GMT-0800 (Pacific Standard Time) {}
@@ -19,7 +27,18 @@ function ConverterIndex() {
         // type: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
         // webkitRelativePath: ""
         formData.append('file', uploadedFile);
-        uploadFile(formData);
+        formData.append('lastModified', uploadedFile.lastModified);
+        formData.append('type', uploadedFile.type);
+        try {
+          const resp = await errorHandler(uploadFile(formData));
+          setStatus(resp.data.status);
+          setMsg(resp.data.msg)
+          toggleShow();
+        } catch (err) {
+          setStatus('error');
+          setMsg('Unknown error has occured');
+          toggleShow();
+        }
         // Todo: Activate loading bar
     };
     return (
@@ -34,6 +53,11 @@ function ConverterIndex() {
             <p className="text-muted">
               Convert you file by clicking on the button:
             </p>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col md="auto text-align-center">
+            <p className="text-muted">(You can only upload 1 file at a time)</p>
           </Col>
         </Row>
         <Row className="justify-content-md-center">
@@ -57,6 +81,17 @@ function ConverterIndex() {
               </Button>
             </label>
           </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Toast show={show} onClose={toggleShow} animation={false} delay={5000} autohide>
+            <Toast.Header>
+              <i className="fas fa-exclamation-circle"></i>
+              <strong className="me-auto">&nbsp; &nbsp; {status}</strong>
+            </Toast.Header>
+            <Toast.Body>
+              {msg}
+            </Toast.Body>
+          </Toast>
         </Row>
       </Container>
     );

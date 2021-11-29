@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import FileItemList from './components/FileItems/FileItemList'
 import FileItem from './components/FileItems/FileItem'
 import ConverterIndex from './components/Converters/ConverterIndex'
+import LogIn from './components/Logins/LogIn'
 import React from 'react'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" component={FileItemList} exact />
           <Route path="/file/:id" component={FileItem} />
           <Route path="/converter" component={ConverterIndex} />
+          <Route path="/login" component={LogIn} />
         </Container>
       </main>
       <Footer />

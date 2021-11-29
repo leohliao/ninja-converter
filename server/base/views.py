@@ -3,13 +3,21 @@ import cloudinary.uploader
 from rest_framework.response import Response
 from .serializers import FileSerializer, ImageSerializer
 from .models import File, Image
+from pdf2image import convert_from_bytes
+from datetime import datetime
+import io
 
-# TODO:
-import json
+SUPPORTED_FILE_FORMAT = [
+    'application/pdf', 
+    'application/vnd.ms-powerpoint', 
+    '.ppt', 
+    '.pptx', 
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+]
 
 # Create your views here.
 @api_view(['GET'])
-def getRoutes(request):
+def get_routes(request):
     routes = [
         '/api/files/',
         '/api/files/create',
@@ -24,58 +32,95 @@ def getRoutes(request):
 
 
 @api_view(['GET'])
-def getFiles(request):
+def get_files(request):
     files = File.objects.all()
     serializer = FileSerializer(files, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def getFile(request, pk):
+def get_file(request, pk):
     file = File.objects.get(id=pk)
     serializer = FileSerializer(file, many=False)
     return Response(serializer.data)
-    # with open('/Users/liaol/Development/ninja-converter/server/base/testData/model_file.json') as rawData:
-    #     files = json.load(rawData)
-    #     for f in files:
-    #         if str(f.get('id')) == pk:
-    #             file = f
-    #             break
-    # return Response(file)
 
 
 @api_view(['GET'])
-def getImages(request, pk):
-    print(f'pk: {pk}')
+def get_images(request, pk):
     images = Image.objects.filter(file_id=pk)
-    print(f"images: {images}")
     serializer = ImageSerializer(images, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def getImage(request, pk):
-    print("getImage")
-    print(f'pk: {pk}')
-    image = Image.objects.filter(id=pk).first()
-    print(f"image: {image}")
-    serializer = ImageSerializer(image, many=False)
-    return Response(serializer.data)
+def get_image(request, pk):
+    try:
+        if not pk:
+            raise Exception('Image Id is not being provided')
+        image = Image.objects.filter(id=pk).first()
+        serializer = ImageSerializer(image, many=False)
+        return Response(serializer.data)
+    except Exception as ex:
+        print(f"getImage => error: {ex}")
+        return Response({
+            'status': 'error',
+            'msg': 'Cannot retrieve image'
+        }, status=301)
 
 
 @api_view(['POST'])
-def uploadFile(request):
-    # def uploadImage(request):
-    print(f'uploadFile:  request => {request}')
-    file = request.data.get('file')
-    print(f'uploadFile: {file}')
-    # Categorize the data (pdf or pptx)
-    # Determine which library to use
-    # Convert the file into images
-    # Upload those images to cloudinary and create image object
-    return Response({
-        'status': 'success'
-    }, status=201)
+def upload_file(request):
+    print("======= uploadFile =======")
+    try: 
+        upload_file_type = request.data.get('type')
+        if upload_file_type not in SUPPORTED_FILE_FORMAT:
+            return Response({
+                'status': 'error',
+                'msg': 'Unsupported file format'
+            }, status=201)
+        upload_file = request.data.get('file')
+        lastModifiedDate = request.data.get('lastModified')
+        last_modified_date = datetime.fromtimestamp(int(lastModifiedDate)/1000.0).strftime('%Y-%m-%d %H:%M:%S')
+        images = convert_from_bytes(upload_file.read())
+
+        if images:
+            new_file = File.objects.create(
+                title=upload_file.name,
+                size=upload_file.size,
+                type=upload_file.content_type,
+                last_modified_date=last_modified_date,
+                user=request.user,
+                total_pages=len(images)
+            )
+            for idx in range(len(images)):
+                image = images[idx]
+                image_in_bytes = io.BytesIO()
+                image.save(image_in_bytes, format='PNG')
+                image_in_bytes = image_in_bytes.getvalue()
+                res = cloudinary.uploader.upload(
+                    image_in_bytes, folder="ninja-converter",)
+                if res:
+                    img_obj = Image.objects.create(
+                        file_id=new_file,
+                        image_url=res.get('url')
+                    )
+                    if idx == 0:
+                        new_file.cover_image = img_obj
+                        new_file.save()
+
+            # Categorize the data (pdf or pptx)
+            # Determine which library to use
+            # Convert the file into images
+            # Upload those images to cloudinary and create image object
+        return Response({
+            'status': 'success',
+            'msg': 'File has been converted successfully'
+        }, status=201)
+    except Exception as ex:
+        return Response({
+            'status': 'error',
+            'msg': ex
+        }, status=201)
 
     # upload_data = cloudinary.uploader.upload(file)
     # return Response({

@@ -10,13 +10,20 @@ function Header() {
             <LinkContainer to="/">
               <Navbar.Brand>Ninja Converter</Navbar.Brand>
             </LinkContainer>
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="nav-align-right">
                 <LinkContainer to="/converter">
-                  <Nav.Link><i className="fas fa-exchange-alt"/>&nbsp;Converter</Nav.Link>
+                  <Nav.Link>
+                    <i className="fas fa-exchange-alt" />
+                    &nbsp;Converter
+                  </Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/login">
-                  <Nav.Link><i className="fas fa-user"/>&nbsp;Login</Nav.Link>
+                  <Nav.Link>
+                    <i className="fas fa-user" />
+                    &nbsp;Login
+                  </Nav.Link>
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>

@@ -19,10 +19,10 @@ function FileItemLists() {
     }, [])
     return (
         <div>
-            <h2>Your files:</h2>
-            <Row>
+            <h2>Converted Files:</h2>
+            <Row className="embed-responsive embed-responsive-4by3 gy-4">
                 {files.map(file => (
-                    <Col key={file.id} sm={12} md={6} lg={4} xl={3}>
+                    <Col className="embed-responsive-item" key={file.id} sm={12} md={6} lg={4} xl={3}>
                         <FileItemCard file={file} />
                     </Col>
                 ))}

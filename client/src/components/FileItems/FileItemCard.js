@@ -1,33 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { fetchImage } from '../../utils/util_images'
 
 export default function FileItemCard({file}) {
-    const [imgSrc, setImgSrc] = useState("")
 
-    useEffect(() => {
-        async function handleFetchImage() {
-            const { data } = await fetchImage(file.image_id);
-            console.log('FileItemCard: data => ', data);
-            setImgSrc(data.image_url);
+    const handleCheckImageUrl = () => {
+        if (file.cover_image_url) {
+            return (
+                <div className="image-max-height">
+                    <Card.Img src={file.cover_image_url} />
+                </div>
+            )
+        } else {
+            return (
+              <div className="no-img image-max-height">
+                  <i className="fas fa-ban custom-icon-size"></i>
+              </div>
+            );
         }
-
-        handleFetchImage();
-    }, [file.image_id]);
+    }
     return (
-        <Card className="my-3 p-3 rounded">
-            <Link to={`/file/${file.id}`}>
-                <Card.Img src={imgSrc}/>
-            </Link>
-                <Card.Body>
-                    <Card.Title className="custom-card-title">
-                        <strong>{file.title}</strong>
-                    </Card.Title>
-                    <Card.Text as="h6">
-                        Pages: 12
-                    </Card.Text>
-                </Card.Body>
+      <Link className="text-decoration-none" to={`/file/${file.id}`}>
+        <Card className="my-3 p-3 rounded custom-card">
+          {handleCheckImageUrl()}
+          <Card.Body>
+            <Card.Title className="custom-card-title">
+              <strong>{file.title}</strong>
+            </Card.Title>
+            <Card.Text as="h6">Pages: {file.total_pages || 0}</Card.Text>
+          </Card.Body>
         </Card>
-    )
+      </Link>
+    );
 }

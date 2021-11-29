@@ -1,33 +1,44 @@
-import React from 'react'
-import { Modal, Container, Image, Row, Col} from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Modal, Container, Card, Image, Row, Col} from 'react-bootstrap'
 
-function ImageItem({ show, image, fileTitle, handleToggleModal }) {
-  console.log('show: ', show);
-  console.log('image: ', image);
+function ImageItem({ image, fileTitle }) {
+    const [show, setShow] = useState(false);
 
+  const handleToggleModal = () => {
+    console.log('show: ', show);
+    setShow(!show);
+  };
   return (
-    <div>
+    <Card
+      key={image.id}
+      className="my-3 p-3 rounded"
+      onClick={handleToggleModal}
+    >
+      <Card.Img src={image.image_url} />
       <Modal
         show={show}
         onHide={handleToggleModal}
-        size="lg"
         aria-labelledby="contained-modal-title-vcenter"
-        centered>
+        animation={false}
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>{fileTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            Woohoo, you're reading this text in a modal!
-            <Container>
-                <Row>
-                    <Col>
-                        <Image src={image.image_url}></Image>
-                    </Col>
-                </Row>
-            </Container>
+          <Container>
+            <Row>
+              <Col>
+                <Image src={image.image_url} fluid></Image>
+              </Col>
+            </Row>
+          </Container>
         </Modal.Body>
+        <Modal.Footer>
+          <p>&copy;</p>
+        </Modal.Footer>
       </Modal>
-    </div>
+    </Card>
   );
 }
 
