@@ -12,16 +12,14 @@ function ImageItem({ image, fileTitle }) {
     <Card
       key={image.id}
       className="my-3 p-3 rounded"
-      onClick={handleToggleModal}
-    >
+      onClick={handleToggleModal}>
       <Card.Img src={image.image_url} />
       <Modal
         show={show}
         onHide={handleToggleModal}
         aria-labelledby="contained-modal-title-vcenter"
         animation={false}
-        centered
-      >
+        centered>
         <Modal.Header closeButton>
           <Modal.Title>{fileTitle}</Modal.Title>
         </Modal.Header>

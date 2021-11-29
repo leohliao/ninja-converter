@@ -15,14 +15,18 @@ function Header() {
               <Nav className="nav-align-right">
                 <LinkContainer to="/converter">
                   <Nav.Link>
-                    <i className="fas fa-exchange-alt" />
-                    &nbsp;Converter
+                    <span className="text-margin-left">
+                      <i className="fas fa-exchange-alt" />
+                      &nbsp;Converter
+                    </span>
                   </Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user" />
-                    &nbsp;Login
+                    <span className="text-margin-left">
+                      <i className="fas fa-user" />
+                      &nbsp;Login
+                    </span>
                   </Nav.Link>
                 </LinkContainer>
               </Nav>

@@ -59,7 +59,7 @@ export default function FileItem({match}) {
                     <h2>{file.title}</h2>
                     <p>Created: {getTimestamp(file.created_datetime)}</p>
                 </Col>
-                                <Col md={1}>
+                <Col md={1}>
                     <Link to='/' className="btn btn-light my-3">Go Back</Link>
                 </Col>
             </Row>

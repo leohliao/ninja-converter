@@ -1,0 +1,16 @@
+[tool.logging518]
+version = 1
+disable_existing_loggers = false
+
+[tool.logging518.formatters.default]
+format = "[%(asctime)s] %(levelname)s %(name)s.%(funcName)s:%(lineno)s: %(message)s"
+datefmt = "%d/%b/%Y %H:%M:%S"
+
+[tool.logging518.handlers.console]
+class = "logging.StreamHandler"
+formatter = "default"
+stream = "ext://sys.stdout"
+
+[tool.logging518.root]
+handlers = ["console"]
+level = "INFO"

@@ -53,3 +53,6 @@ main {
 .item-row-images {
   margin-top: 0.5rem!important;
 }
+.text-margin-left {
+  margin-left: 1rem;
+}

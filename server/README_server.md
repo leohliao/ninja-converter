@@ -1,7 +1,6 @@
 https://pdf2image.readthedocs.io/en/latest/reference.html
 
 http://localhost:8000/admin/
-leo/exhibitleo
 
 '/api/files/',
 '/api/files/create',
@@ -11,3 +10,8 @@ leo/exhibitleo
 '/api/files/update/<id>',
 '/api/file/upload',
 '/api/image/<id>'
+
+celery -A ninja-converter worker -c 4 -l info
+
+redis-server --port 6379
+redis-cli shutdown

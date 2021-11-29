@@ -27,7 +27,7 @@ export default function FileItemCard({file}) {
             <Card.Title className="custom-card-title">
               <strong>{file.title}</strong>
             </Card.Title>
-            <Card.Text as="h6">Pages: {file.total_pages || 0}</Card.Text>
+            <Card.Text as="h6">Pages: { file.total_pages || 0 }</Card.Text>
           </Card.Body>
         </Card>
       </Link>

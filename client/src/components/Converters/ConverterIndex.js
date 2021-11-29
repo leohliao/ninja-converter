@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button, Toast } from 'react-bootstrap';
+import { Container, Row, Col, Button, Toast, Spinner } from 'react-bootstrap';
 import { uploadFile } from '../../utils/util_files';
 import { errorHandler } from '../../handlers/errorHandlers';
 
@@ -8,6 +8,7 @@ function ConverterIndex() {
     const [show, setShow] = useState(false);
     const [status, setStatus] = useState('');
     const [msg, setMsg] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleClick = (event) => {
         event.preventDefault();
@@ -17,15 +18,10 @@ function ConverterIndex() {
     const toggleShow = () => setShow(!show);
 
     const handleChange = async (event) => {
+        setIsLoading(true);
         const formData = new FormData();
         // User can only upload 1 file at a time
         const uploadedFile = event.target.files[0];
-        // lastModified: 1613095037055
-        // lastModifiedDate: Thu Feb 11 2021 17:57:17 GMT-0800 (Pacific Standard Time) {}
-        // name: "Sequoia Architecture.pptx"
-        // size: 3356050
-        // type: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        // webkitRelativePath: ""
         formData.append('file', uploadedFile);
         formData.append('lastModified', uploadedFile.lastModified);
         formData.append('type', uploadedFile.type);
@@ -38,8 +34,9 @@ function ConverterIndex() {
           setStatus('error');
           setMsg('Unknown error has occured');
           toggleShow();
+        } finally {
+          setIsLoading(false);
         }
-        // Todo: Activate loading bar
     };
     return (
       <Container fluid="md">
@@ -71,26 +68,48 @@ function ConverterIndex() {
               onChange={handleChange}
             />
             <label htmlFor="converter-input-button">
-              <Button
-                className="btn btn-dark my-3"
-                variant="contained"
-                color="primary"
-                onClick={handleClick}
-              >
-                Upload File
-              </Button>
+              {!isLoading && (
+                <Button
+                  className="btn btn-dark my-3"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleClick}
+                >
+                  Upload File
+                </Button>
+              )}
+              {isLoading && (
+                <Button
+                  className="btn btn-dark my-3"
+                  variant="primary"
+                  disabled
+                >
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  <span className="text-margin-left">Process...</span>
+                </Button>
+              )}
             </label>
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Toast show={show} onClose={toggleShow} animation={false} delay={5000} autohide>
+          <Toast
+            show={show}
+            onClose={toggleShow}
+            animation={false}
+            delay={5000}
+            autohide
+          >
             <Toast.Header>
               <i className="fas fa-exclamation-circle"></i>
               <strong className="me-auto">&nbsp; &nbsp; {status}</strong>
             </Toast.Header>
-            <Toast.Body>
-              {msg}
-            </Toast.Body>
+            <Toast.Body>{msg}</Toast.Body>
           </Toast>
         </Row>
       </Container>

@@ -1,3 +1,8 @@
+# from django.urls.conf import include
+from django.contrib import admin
+from django.urls import path
+from . import views
+
 """server URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,11 +18,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('base.urls'))
+    path('api/', views.get_routes, name="routes"),
+    path('api/files/', views.get_files, name="get_files"),
+    path('api/file/<str:pk>', views.get_file, name="get_file"),
+    path('api/file/<str:pk>/images', views.get_images, name="get_images"),
+    path('api/file/upload/', views.upload_file, name="file_upload"),
+    path('api/image/<str:pk>', views.get_image, name="get_image")
 ]
+
