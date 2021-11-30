@@ -10,8 +10,8 @@
 ## Project Setup
 
 ```bash
-# Navigate to ninja-converter/client
-$ cd ninja-converter/client
+# Navigate to /client
+$ cd /client
 # Define environment variables
 $ mkdir env
 $ touch env/.env

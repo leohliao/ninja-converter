@@ -10,8 +10,8 @@
 ## Project Setup
 
 ```bash
-# Navigate to ninja-converter/client
-$ cd ninja-converter/server
+# Navigate to server/
+$ cd server/
 # Define environment variables
 $ mkdir app/env
 $ touch app/env/.env
@@ -27,7 +27,7 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 # To migrate all the tables
 $ python manage.py migrate
-# To create superuser (will prompt you to enter name, email and password)
+# To create superuser (will prompt you to enter username, email and password)
 $ python manage.py createsuperuser
 # To run the server
 $ MODE=local python manage.py runserver
