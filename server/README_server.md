@@ -15,10 +15,8 @@ $ cd ninja-converter/server
 # Define environment variables
 $ mkdir app/env
 $ touch app/env/.env
-$ echo "REDIS_CACHE_HOST=redis://redis:6379 \n
-DB_URL=sqlite:///:memory \n
-CLOUD_NAME=<cloud_name> \n
-API_KEY=<api_key> \n
+$ echo "CLOUD_NAME=<cloud_name>
+API_KEY=<api_key>
 API_SECRET=<api_secrect>" >> app/env/.env
 # ==>> API credentials will be provided separately <<==
 
