@@ -19,12 +19,8 @@ SUPPORTED_FILE_FORMAT = [
 def get_routes(request):
     log.info(f"get_routes initiated.... request: {request}")
     routes = [
-        '/api/files/',
-        '/api/files/create',
         '/api/files/<id>',
         '/api/files/<id>/images'
-        '/api/files/delete/<id>',
-        '/api/files/update/<id>',
         '/api/file/upload',
         '/api/image/<id>'
     ]

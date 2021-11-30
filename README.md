@@ -1,13 +1,9 @@
 # Ninja Converter
 
 ## Client
-
+- [Documentation](./client/README_client.md)
 ## Server
+- [Documentation](./server/README_server.md)
 
-TODO:
-- Upload images to cloudinary
-- Save image url
-- Install celery
-- Add progress bar
-- Deploy
-- Wrap and send code
+## To setup the project
+- Please use a separate terminal to follow the instruction listed above.

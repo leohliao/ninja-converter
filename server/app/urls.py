@@ -22,7 +22,7 @@ Including another URLconf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', views.get_routes, name="routes"),
-    path('api/files/', views.get_files, name="get_files"),
+    path('api/files', views.get_files, name="get_files"),
     path('api/file/<str:pk>', views.get_file, name="get_file"),
     path('api/file/<str:pk>/images', views.get_images, name="get_images"),
     path('api/file/upload/', views.upload_file, name="file_upload"),

@@ -5,7 +5,6 @@ function ImageItem({ image, fileTitle }) {
     const [show, setShow] = useState(false);
 
   const handleToggleModal = () => {
-    console.log('show: ', show);
     setShow(!show);
   };
   return (

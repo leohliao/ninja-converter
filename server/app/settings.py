@@ -14,7 +14,6 @@ from pathlib import Path
 import dj_database_url
 import cloudinary
 import os
-import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,10 +29,6 @@ SECRET_KEY = 'django-insecure-kdscozj=8)usso=m%3tmxo^7g-vs*k6zj@rq^m_tc3%1tn0ddb
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-# Initialise environment variables
-env = environ.Env()
-environ.Env.read_env()
 
 # Application definition
 
@@ -131,7 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STORAGE_DIR = os.path.join(BASE_DIR, '..', 'storage')
+STATIC_ROOT = os.path.join(STORAGE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -141,10 +137,16 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
 
-CLOUD_NAME = env("CLOUD_NAME")
-API_KEY = env("API_KEY")
-API_SECRET = env("API_SECRET")
+# For development purposes.
+CORS_ORIGIN_ALLOW_ALL = True
 
+#
+# Cloudinary
+#
+
+CLOUD_NAME = os.getenv("CLOUD_NAME")
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
 cloudinary.config(
     cloud_name=CLOUD_NAME,
     api_key=API_KEY,
